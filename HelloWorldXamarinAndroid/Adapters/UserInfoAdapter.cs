@@ -23,10 +23,9 @@ namespace HelloWorldXamarinAndroid
         {
 
             //Setup your layout here
-            View itemView = null;
             var id = Resource.Layout.user_info_list_item;
-            itemView = LayoutInflater.From(parent.Context).
-                   Inflate(id, parent, false);
+            var itemView = LayoutInflater.From(parent.Context).
+                Inflate(id, parent, false);
             //var tv = new TextView(parent.Context);            
             //tv.SetPadding(20, 20, 20, 20);
             //tv.Text = "";

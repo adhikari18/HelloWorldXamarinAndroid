@@ -49,16 +49,10 @@ namespace HelloWorldXamarinAndroid
             var data = new UserInfo[] {
                 new UserInfo("Jeff", "Bezoz"),
                 new UserInfo("Elon", "Musk"),
-                new UserInfo("Jeff", "Bezoz"),
-                new UserInfo("Elon", "Musk"),
-                new UserInfo("Jeff", "Bezoz"),
-                new UserInfo("Elon", "Musk"),
-                new UserInfo("Jeff", "Bezoz"),
-                new UserInfo("Elon", "Musk"),
-                new UserInfo("Jeff", "Bezoz"),
-                new UserInfo("Elon", "Musk"),
-                new UserInfo("Jeff", "Bezoz"),
-                new UserInfo("Elon", "Musk"),
+                new UserInfo("asdfs", "ewrqwe"),
+                new UserInfo("hhs", "tyuert"),
+                new UserInfo("xc", "4234q3r"),
+                new UserInfo("hgfhfgd", "ertsdfsd")
             };
             return data;
         }
