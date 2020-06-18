@@ -2,7 +2,8 @@
 using Android.App;
 using Android.OS;
 using Android.Widget;
-using SharedLibrary;
+using SharedLibrary.Models;
+using SharedLibrary.Services;
 
 namespace MyUserManager.Activities
 {

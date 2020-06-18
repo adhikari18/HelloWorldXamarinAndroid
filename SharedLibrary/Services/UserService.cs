@@ -1,8 +1,8 @@
-﻿using SQLite;
+﻿using SharedLibrary.DataAccess;
+using SharedLibrary.Models;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
-namespace SharedLibrary
+namespace SharedLibrary.Services
 {
     public class UserService : IUserService
     {
@@ -29,7 +29,7 @@ namespace SharedLibrary
             //I wasn't clear whether it needed subsequence of at least 1 char or 2 chars.
             //I assumed it would be invalid for 2+ characters if it follows itself.
             //Eg. it will consider AA1234 as valid but ABAB1234 as invalid;
-            var isValid = isAlphanumericContainingBoth && hasValidLength && !consecutiveSubsequenceOfAtLeast2Chars; 
+            var isValid = isAlphanumericContainingBoth && hasValidLength && !consecutiveSubsequenceOfAtLeast2Chars;
             return isValid;
         }
     }

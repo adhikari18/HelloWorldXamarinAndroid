@@ -1,6 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using SharedLibrary.Models;
+using System.Threading.Tasks;
 
-namespace SharedLibrary
+namespace SharedLibrary.Services
 {
     public interface IUserService
     {

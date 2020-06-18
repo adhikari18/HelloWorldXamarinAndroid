@@ -1,6 +1,6 @@
 ﻿using SQLite;
 
-namespace SharedLibrary
+namespace SharedLibrary.Models
 {
     [Table("Users")]
     public class UserInfo

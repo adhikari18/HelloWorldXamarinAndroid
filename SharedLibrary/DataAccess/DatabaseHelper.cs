@@ -1,7 +1,7 @@
-﻿using SQLite;
-using System.Collections.Generic;
+﻿using SharedLibrary.Models;
+using SQLite;
 
-namespace SharedLibrary
+namespace SharedLibrary.DataAccess
 {
     public static class DatabaseHelper
     {
@@ -9,7 +9,7 @@ namespace SharedLibrary
         public static void InitDb(string dbPath)
         {
             DbPath = dbPath;
-            using(var connection = new SQLiteConnection(dbPath))
+            using (var connection = new SQLiteConnection(dbPath))
             {
                 connection.CreateTable<UserInfo>();
             }
