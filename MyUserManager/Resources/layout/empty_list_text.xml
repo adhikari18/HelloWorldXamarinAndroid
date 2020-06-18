@@ -1,0 +1,14 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/abc_background_cache_hint_selector_material_dark"
+    android:padding="@dimen/content_padding">
+    <TextView
+        android:id="@+id/text_view_header_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="@dimen/list_header_text_size"
+        android:text="@string/empty_text"/>
+</RelativeLayout>

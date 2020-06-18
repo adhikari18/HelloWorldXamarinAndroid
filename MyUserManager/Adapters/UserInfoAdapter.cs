@@ -20,11 +20,11 @@ namespace MyUserManager.Adapters
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
             //Setup your layout here
-            var id = viewType == HeaderItem ? Resource.Layout.user_info_header_item : Resource.Layout.user_info_list_item;
+            var id = items.Length > 0 ? (viewType == HeaderItem ? Resource.Layout.user_info_header_item : Resource.Layout.user_info_list_item) : Resource.Layout.empty_list_text;
             var itemView = LayoutInflater.From(parent.Context).
                 Inflate(id, parent, false);
 
-            if(viewType == HeaderItem)
+            if(viewType == HeaderItem || items.Length <= 0)
             {
                 return new UserInfoHeaderAdapterViewHolder(itemView);
             }

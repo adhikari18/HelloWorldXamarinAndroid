@@ -22,7 +22,7 @@ namespace SharedLibrary.Services
             {
                 return false;
             }
-            var isAlphanumericContainingBoth = Regex.IsMatch(password, @"^([a-zA-Z]+[0-9]|[0-9]+[a-zA-Z])[A-Za-z0-9]*$");
+            var isAlphanumericContainingBoth = Regex.IsMatch(password, @"^(?=.*\d+)(?=.*[a-zA-Z])[0-9a-zA-Z]+$");
             var hasValidLength = password.Length >= 5 && password.Length <= 12;
             var consecutiveSubsequenceOfAtLeast2Chars = Regex.IsMatch(password, @"(..+)\1");
 

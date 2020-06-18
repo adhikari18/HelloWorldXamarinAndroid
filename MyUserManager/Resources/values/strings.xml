@@ -13,4 +13,5 @@
 		\n 2. Password must be between 5 and 12 characters in length.
 		\n 3. Password must not contain any sequence of characters immediately followed by the same sequence.
 	</string>
+    <string name="empty_text">Users list is empty. Add user using the button below.</string>
 </resources>

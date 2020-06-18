@@ -29,6 +29,8 @@ namespace SharedLibrary.Tests
         [InlineData("1234567890AB", true)]
         [InlineData("ABXYZAB1", true)]
         [InlineData("abABc12", true)]
+        [InlineData("gt63edcnki", true)]
+        [InlineData("1234AB6789", true)]
 
 
         public void TestValidatePassword(string password, bool expected)
