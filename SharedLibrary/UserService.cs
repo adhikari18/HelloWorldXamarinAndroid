@@ -1,7 +1,4 @@
 ﻿using SQLite;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -9,7 +6,7 @@ namespace SharedLibrary
 {
     public class UserService : IUserService
     {
-        IRepository<UserInfo> _userRepository;
+        private readonly IRepository<UserInfo> _userRepository;
         public UserService(string dbPath)
         {
             var connection = new SQLiteAsyncConnection(dbPath);

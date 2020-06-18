@@ -6,12 +6,8 @@ using Android.Runtime;
 using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Views;
-
-using Android.Widget;
 using Android.Support.V7.Widget;
-using System.Collections.Generic;
 using SharedLibrary;
-using System.Threading.Tasks;
 
 namespace HelloWorldXamarinAndroid
 {
@@ -26,10 +22,10 @@ namespace HelloWorldXamarinAndroid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
 
-            Android.Support.V7.Widget.Toolbar toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+            var toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
 
-            FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
+            var fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
             fab.Click += FabOnClick;
 
 
@@ -45,8 +41,8 @@ namespace HelloWorldXamarinAndroid
 
         private void InitDatabase()
         {
-            string applicationFolderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-            string databaseFileName = System.IO.Path.Combine(applicationFolderPath, "users.db");
+            var applicationFolderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            var databaseFileName = System.IO.Path.Combine(applicationFolderPath, "users.db");
 
             DatabaseHelper.InitDb(databaseFileName);
         }
@@ -56,7 +52,6 @@ namespace HelloWorldXamarinAndroid
             base.OnResume();
 
             var recyclerViewData = GetData();
-            // Plug in my adapter:
             _userInfoAdapter = new UserInfoAdapter(recyclerViewData);
             _userInfoRecyclerView.SetAdapter(_userInfoAdapter);
         }
@@ -76,7 +71,7 @@ namespace HelloWorldXamarinAndroid
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            int id = item.ItemId;
+            var id = item.ItemId;
             if (id == Resource.Id.action_settings)
             {
                 return true;
@@ -87,7 +82,7 @@ namespace HelloWorldXamarinAndroid
 
         private void FabOnClick(object sender, EventArgs eventArgs)
         {
-            Intent intent = new Intent(this, typeof(AddUsersActivity));
+            var intent = new Intent(this, typeof(AddUsersActivity));
             StartActivity(intent);
         }
 

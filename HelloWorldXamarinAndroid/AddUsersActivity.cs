@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Android.App;
-using Android.Content;
-using Android.Graphics.Drawables;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
 using SharedLibrary;
 
@@ -30,10 +22,10 @@ namespace HelloWorldXamarinAndroid
 
         private async void AddUserOnClick(object sender, EventArgs eventArgs)
         {
-            string applicationFolderPath = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "CanFindLocation");
+            var applicationFolderPath = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "CanFindLocation");
 
             System.IO.Directory.CreateDirectory(applicationFolderPath);
-            string databaseFileName = System.IO.Path.Combine(applicationFolderPath, "CanFindLocation.db");
+            var databaseFileName = System.IO.Path.Combine(applicationFolderPath, "CanFindLocation.db");
 
             var userService = new UserService(databaseFileName);
             var username = FindViewById<EditText>(Resource.Id.edit_text_username);
