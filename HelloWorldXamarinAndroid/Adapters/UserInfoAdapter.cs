@@ -1,17 +1,13 @@
-﻿using System;
-
-using Android.Views;
+﻿using Android.Views;
 using Android.Widget;
 using Android.Support.V7.Widget;
-using Android.Net.Wifi.Aware;
 using SharedLibrary;
-using System.Collections.Generic;
 
 namespace HelloWorldXamarinAndroid
 {
     internal class UserInfoAdapter : RecyclerView.Adapter
     {
-        UserInfo[] items;
+        private readonly UserInfo[] items;
 
         public UserInfoAdapter(UserInfo[] data)
         {
@@ -26,9 +22,6 @@ namespace HelloWorldXamarinAndroid
             var id = Resource.Layout.user_info_list_item;
             var itemView = LayoutInflater.From(parent.Context).
                 Inflate(id, parent, false);
-            //var tv = new TextView(parent.Context);            
-            //tv.SetPadding(20, 20, 20, 20);
-            //tv.Text = "";
 
             var vh = new UserInfoAdapterViewHolder(itemView);
             return vh;
@@ -53,8 +46,6 @@ namespace HelloWorldXamarinAndroid
         public TextView PasswordTextView { get; set; }
 
         public UserInfoAdapterViewHolder(View itemView): base(itemView)
-        //public UserInfoAdapterViewHolder(View itemView, Action<UserInfoAdapterClickEventArgs> clickListener,
-        //                    Action<UserInfoAdapterClickEventArgs> longClickListener) : base(itemView)
         {
             UserNameTextView = itemView.FindViewById<TextView>(Resource.Id.text_view_user_name);
             PasswordTextView = itemView.FindViewById<TextView>(Resource.Id.text_view_password);

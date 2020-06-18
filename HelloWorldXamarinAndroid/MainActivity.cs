@@ -11,6 +11,7 @@ using Android.Widget;
 using Android.Support.V7.Widget;
 using System.Collections.Generic;
 using SharedLibrary;
+using System.Threading.Tasks;
 
 namespace HelloWorldXamarinAndroid
 {
@@ -38,6 +39,22 @@ namespace HelloWorldXamarinAndroid
             _userInfoRecyclerView.SetLayoutManager(layoutManager);
             _userInfoRecyclerView.HasFixedSize = true;
 
+            InitDatabase();
+
+        }
+
+        private void InitDatabase()
+        {
+            string applicationFolderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            string databaseFileName = System.IO.Path.Combine(applicationFolderPath, "users.db");
+
+            DatabaseHelper.InitDb(databaseFileName);
+        }
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+
             var recyclerViewData = GetData();
             // Plug in my adapter:
             _userInfoAdapter = new UserInfoAdapter(recyclerViewData);
@@ -46,15 +63,10 @@ namespace HelloWorldXamarinAndroid
 
         private UserInfo[] GetData()
         {
-            var data = new UserInfo[] {
-                new UserInfo("Jeff", "Bezoz"),
-                new UserInfo("Elon", "Musk"),
-                new UserInfo("asdfs", "ewrqwe"),
-                new UserInfo("hhs", "tyuert"),
-                new UserInfo("xc", "4234q3r"),
-                new UserInfo("hgfhfgd", "ertsdfsd")
-            };
-            return data;
+            return DatabaseHelper.GetUsers().ToArray();
+            //var userService = new UserService(databaseFileName);
+            //var result = userService.GetUsersAsync().Result;
+            //return result;
         }
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
