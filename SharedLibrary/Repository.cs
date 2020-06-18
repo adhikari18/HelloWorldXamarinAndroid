@@ -6,7 +6,7 @@ namespace SharedLibrary
 {
     public class Repository<T> : IRepository<T> where T : class, new()
     {
-        private SQLiteAsyncConnection _db;
+        private readonly SQLiteAsyncConnection _db;
         public Repository(SQLiteAsyncConnection db)
         {
             _db = db;

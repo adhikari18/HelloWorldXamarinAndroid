@@ -1,5 +1,6 @@
 ﻿using System;
 using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Widget;
 using SharedLibrary;
@@ -22,16 +23,10 @@ namespace HelloWorldXamarinAndroid
 
         private async void AddUserOnClick(object sender, EventArgs eventArgs)
         {
-            var applicationFolderPath = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "CanFindLocation");
-
-            System.IO.Directory.CreateDirectory(applicationFolderPath);
-            var databaseFileName = System.IO.Path.Combine(applicationFolderPath, "CanFindLocation.db");
-
-            var userService = new UserService(databaseFileName);
             var username = FindViewById<EditText>(Resource.Id.edit_text_username);
             var password = FindViewById<EditText>(Resource.Id.edit_text_password);
-
-            var isPasswordValid = await userService.ValidatePassword(password.Text);
+            var userService = new UserService();
+            var isPasswordValid =  userService.ValidatePassword(password.Text);
 
             if (!isPasswordValid)
             {
@@ -39,10 +34,23 @@ namespace HelloWorldXamarinAndroid
             }
             else
             {
-                DatabaseHelper.AddUser(new UserInfo(username.Text, password.Text));
-                //await userService.AddUserAsync(new UserInfo(username.Text, password.Text));
-                Finish();
+                var addSuccessful = userService.AddUser(new UserInfo(username.Text, password.Text));
+                if(addSuccessful > 0)
+                {
+                    ShowToast("Successfully added user information!");
+                    Finish();
+                }
+                else
+                {
+                    ShowToast("Oops, something went wrong!");
+                }
             }
+        }
+
+        private void ShowToast(string text)
+        {
+            var toast = Toast.MakeText(Application.Context, text, ToastLength.Short);
+            toast.Show();
         }
     }
 }

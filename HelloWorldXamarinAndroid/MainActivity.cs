@@ -22,7 +22,7 @@ namespace HelloWorldXamarinAndroid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
 
-            var toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+            var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
 
             var fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
@@ -50,19 +50,12 @@ namespace HelloWorldXamarinAndroid
         protected override void OnResume()
         {
             base.OnResume();
-
-            var recyclerViewData = GetData();
+            UserService userService = new UserService();
+            var recyclerViewData = userService.GetUsers();
             _userInfoAdapter = new UserInfoAdapter(recyclerViewData);
             _userInfoRecyclerView.SetAdapter(_userInfoAdapter);
         }
 
-        private UserInfo[] GetData()
-        {
-            return DatabaseHelper.GetUsers().ToArray();
-            //var userService = new UserService(databaseFileName);
-            //var result = userService.GetUsersAsync().Result;
-            //return result;
-        }
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.menu_main, menu);

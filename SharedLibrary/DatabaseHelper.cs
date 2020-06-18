@@ -15,18 +15,18 @@ namespace SharedLibrary
             }
         }
 
-        public static void AddUser(UserInfo user)
+        public static int AddUser(UserInfo user)
         {
             using (var connection = new SQLiteConnection(DbPath))
             {
-                connection.Insert(user);
+                return connection.Insert(user);
             }
         }
-        public static List<UserInfo> GetUsers()
+        public static UserInfo[] GetUsers()
         {
             using (var connection = new SQLiteConnection(DbPath))
             {
-                return connection.Table<UserInfo>().ToList();
+                return connection.Table<UserInfo>().ToArray();
             }
         }
     }

@@ -4,8 +4,8 @@ namespace SharedLibrary
 {
     public interface IUserService
     {
-        Task<UserInfo[]> GetUsersAsync();
-        Task<int> AddUserAsync(UserInfo userInfo);
-        Task<bool> ValidatePassword(string password);
+        UserInfo[] GetUsers();
+        int AddUser(UserInfo userInfo);
+        bool ValidatePassword(string password);
     }
 }
