@@ -29,6 +29,7 @@ namespace MyUserManager.Activities
 
             if (!isPasswordValid)
             {
+                password.RequestFocus();
                 password.SetError("Invalid Password", null);
             }
             else
