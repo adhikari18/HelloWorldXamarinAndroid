@@ -60,23 +60,6 @@ namespace MyUserManager.Activities
             _userInfoRecyclerView.SetAdapter(_userInfoAdapter);
         }
 
-        public override bool OnCreateOptionsMenu(IMenu menu)
-        {
-            MenuInflater.Inflate(Resource.Menu.menu_main, menu);
-            return true;
-        }
-
-        public override bool OnOptionsItemSelected(IMenuItem item)
-        {
-            var id = item.ItemId;
-            if (id == Resource.Id.action_settings)
-            {
-                return true;
-            }
-
-            return base.OnOptionsItemSelected(item);
-        }
-
         private void FabOnClick(object sender, EventArgs eventArgs)
         {
             var intent = new Intent(this, typeof(AddUsersActivity));
