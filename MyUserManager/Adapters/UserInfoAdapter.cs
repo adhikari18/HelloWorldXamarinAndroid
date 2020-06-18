@@ -37,7 +37,7 @@ namespace MyUserManager.Adapters
             if(viewHolder is UserInfoAdapterViewHolder)
             {
                 var holder = viewHolder as UserInfoAdapterViewHolder;
-                holder.UserNameTextView.Text = items[position - 1].User;
+                holder.UserNameTextView.Text = items[position - 1].UserName;
                 holder.PasswordTextView.Text = items[position - 1].Password;
             }
         }

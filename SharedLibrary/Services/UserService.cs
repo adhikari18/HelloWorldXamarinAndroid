@@ -26,6 +26,7 @@ namespace SharedLibrary.Services
             var hasValidLength = password.Length >= 5 && password.Length <= 12;
             var consecutiveSubsequenceOfAtLeast2Chars = Regex.IsMatch(password, @"(..+)\1");
 
+            //TODO: Get Clarification
             //I wasn't clear whether it needed subsequence of at least 1 char or 2 chars.
             //I assumed it would be invalid for 2+ characters if it follows itself.
             //Eg. it will consider AA1234 as valid but ABAB1234 as invalid;

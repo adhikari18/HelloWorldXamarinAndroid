@@ -10,13 +10,13 @@ namespace SharedLibrary.Models
         [PrimaryKey, AutoIncrement, Column("Id")]
         public int Id { get; set; }
         [MaxLength(50)]
-        public string User { get; set; }
+        public string UserName { get; set; }
         [MaxLength(50)]
         public string Password { get; set; }
 
         public UserInfo(string user, string password)
         {
-            User = user;
+            UserName = user;
             Password = password;
         }
     }
