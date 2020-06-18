@@ -3,7 +3,7 @@ using Android.Views;
 using Android.Widget;
 using SharedLibrary;
 
-namespace HelloWorldXamarinAndroid.Adapters
+namespace MyUserManager.Adapters
 {
     internal class UserInfoAdapter : RecyclerView.Adapter
     {

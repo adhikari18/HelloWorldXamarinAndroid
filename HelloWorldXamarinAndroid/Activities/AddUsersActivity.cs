@@ -4,7 +4,7 @@ using Android.OS;
 using Android.Widget;
 using SharedLibrary;
 
-namespace HelloWorldXamarinAndroid.Activities
+namespace MyUserManager.Activities
 {
     [Activity(Label = "AddUsersActivity")]
     public class AddUsersActivity : Activity
@@ -20,7 +20,7 @@ namespace HelloWorldXamarinAndroid.Activities
 
         }
 
-        private async void AddUserOnClick(object sender, EventArgs eventArgs)
+        private void AddUserOnClick(object sender, EventArgs eventArgs)
         {
             var username = FindViewById<EditText>(Resource.Id.edit_text_username);
             var password = FindViewById<EditText>(Resource.Id.edit_text_password);
