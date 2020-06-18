@@ -11,15 +11,15 @@ namespace SharedLibrary.Tests
         [InlineData("12345", false)]
         [InlineData("ABCDE", false)]
         [InlineData("ABAB1", false)]
+        [InlineData("AA123", false)]
         [InlineData("ABCD1#", false)]
         [InlineData("12341234", false)]
-        [InlineData("ABCDEFABCDEF", false)]
+        [InlineData("ABCDE1ABCDE1", false)]
         [InlineData("123456789012A", false)]
         [InlineData("ABCDEFGHIJ123", false)]
 
         [InlineData("ABCD1", true)]
         [InlineData("1234567890AB", true)]
-        [InlineData("AA123", true)]
         [InlineData("ABXYZAB1", true)]
         [InlineData("abABc12", true)]
 
