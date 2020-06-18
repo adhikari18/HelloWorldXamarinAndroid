@@ -5,11 +5,12 @@ using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
 using Android.Support.V7.App;
-using Android.Views;
 using Android.Support.V7.Widget;
+using Android.Views;
+using HelloWorldXamarinAndroid.Adapters;
 using SharedLibrary;
 
-namespace HelloWorldXamarinAndroid
+namespace HelloWorldXamarinAndroid.Activities
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class MainActivity : AppCompatActivity

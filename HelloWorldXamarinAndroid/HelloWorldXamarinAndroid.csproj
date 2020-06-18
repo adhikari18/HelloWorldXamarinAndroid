@@ -66,8 +66,8 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddUsersActivity.cs" />
-    <Compile Include="MainActivity.cs" />
+    <Compile Include="Activities\AddUsersActivity.cs" />
+    <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Adapters\UserInfoAdapter.cs" />

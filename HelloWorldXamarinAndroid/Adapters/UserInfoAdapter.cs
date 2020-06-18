@@ -1,9 +1,9 @@
-﻿using Android.Views;
+﻿using Android.Support.V7.Widget;
+using Android.Views;
 using Android.Widget;
-using Android.Support.V7.Widget;
 using SharedLibrary;
 
-namespace HelloWorldXamarinAndroid
+namespace HelloWorldXamarinAndroid.Adapters
 {
     internal class UserInfoAdapter : RecyclerView.Adapter
     {

@@ -1,11 +1,10 @@
 ﻿using System;
 using Android.App;
-using Android.Content;
 using Android.OS;
 using Android.Widget;
 using SharedLibrary;
 
-namespace HelloWorldXamarinAndroid
+namespace HelloWorldXamarinAndroid.Activities
 {
     [Activity(Label = "AddUsersActivity")]
     public class AddUsersActivity : Activity
