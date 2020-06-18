@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView_users"
         android:scrollbars="vertical"
@@ -40,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="+"
+            android:text="@string/plus"
             android:textSize="@dimen/fab_button_text_size"
             android:elevation="@dimen/fab_button_text_elevation"
             android:textColor="@android:color/white"

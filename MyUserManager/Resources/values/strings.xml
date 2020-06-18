@@ -2,4 +2,15 @@
     <string name="app_name">My User Manager</string>
     <string name="action_settings">Settings</string>
     <string name="button_add_user">Add user</string>
+    <string name="plus">+</string>
+    <string name="user_db_file">userinfo.db</string>
+    <string name="user_name_text">Username</string>
+    <string name="user_password_text">Password</string>
+    <string name="add_user_header">Add User</string>
+	<string name="password_validation_rules_text">
+		\n Password rules
+		\n 1. Password must contain of a mixture of letters and numerical digits only, with at least one of each.
+		\n 2. Password must be between 5 and 12 characters in length.
+		\n 3. Password must not contain any sequence of characters immediately followed by the same sequence.
+	</string>
 </resources>

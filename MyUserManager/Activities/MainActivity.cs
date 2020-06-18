@@ -36,6 +36,8 @@ namespace MyUserManager.Activities
             _userInfoRecyclerView.SetLayoutManager(layoutManager);
             _userInfoRecyclerView.HasFixedSize = true;
 
+            DividerItemDecoration dividerItem = new DividerItemDecoration(_userInfoRecyclerView.Context, layoutManager.Orientation);
+            _userInfoRecyclerView.AddItemDecoration(dividerItem);
             InitDatabase();
 
         }
@@ -43,7 +45,7 @@ namespace MyUserManager.Activities
         private void InitDatabase()
         {
             var applicationFolderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-            var databaseFileName = System.IO.Path.Combine(applicationFolderPath, "users.db");
+            var databaseFileName = System.IO.Path.Combine(applicationFolderPath, Resources.GetString(Resource.String.user_db_file));
 
             DatabaseHelper.InitDb(databaseFileName);
         }

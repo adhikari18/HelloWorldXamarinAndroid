@@ -1,26 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-  <TextView
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-    android:text="Add User"/>
-  <EditText
-android:id="@+id/edit_text_username"
-android:inputType="text"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-android:hint="Username"
+    android:layout_height="match_parent"
+        android:padding="@dimen/content_padding">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_user_header"
+        android:textSize="@dimen/list_header_text_size"
+        android:gravity="center"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/password_validation_rules_text"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:id="@+id/edit_text_username"
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/user_name_text"
 />
-  <EditText
-android:id="@+id/edit_text_password"
-android:inputType="textVisiblePassword"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-android:hint="Password"/>
-  <Button
+    <EditText
+        android:id="@+id/edit_text_password"
+        android:inputType="textVisiblePassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/user_password_text"/>
+    <Button
         android:id="@+id/button_add_user"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
