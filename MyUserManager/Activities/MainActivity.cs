@@ -6,7 +6,6 @@ using Android.Runtime;
 using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Support.V7.Widget;
-using Android.Views;
 using MyUserManager.Adapters;
 using SharedLibrary.DataAccess;
 using SharedLibrary.Services;
@@ -30,7 +29,6 @@ namespace MyUserManager.Activities
             var fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
             fab.Click += FabOnClick;
 
-
             _userInfoRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView_users);
 
             var layoutManager = new LinearLayoutManager(this) { Orientation = LinearLayoutManager.Vertical };
@@ -39,8 +37,8 @@ namespace MyUserManager.Activities
 
             DividerItemDecoration dividerItem = new DividerItemDecoration(_userInfoRecyclerView.Context, layoutManager.Orientation);
             _userInfoRecyclerView.AddItemDecoration(dividerItem);
-            InitDatabase();
 
+            InitDatabase();
         }
 
         private void InitDatabase()
