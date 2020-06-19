@@ -3,12 +3,11 @@
 namespace SharedLibrary.Models
 {
     [Table("Users")]
-    public class UserInfo
+    public class UserInfo : BaseModel
     {
         public UserInfo() { }
 
-        [PrimaryKey, AutoIncrement, Column("Id")]
-        public int Id { get; set; }
+        //TODO: Get details of max length rules
         [MaxLength(50)]
         public string UserName { get; set; }
         [MaxLength(50)]

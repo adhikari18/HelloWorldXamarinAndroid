@@ -1,19 +1,25 @@
-﻿using SharedLibrary.DataAccess;
-using SharedLibrary.Models;
+﻿using SharedLibrary.Models;
+using SharedLibrary.Repository;
 using System.Text.RegularExpressions;
 
 namespace SharedLibrary.Services
 {
     public class UserService : IUserService
     {
+        private readonly IRepository<UserInfo> userRepo;
+
+        public UserService(string dbPath)
+        {
+            userRepo = new Repository<UserInfo>(dbPath);
+        }
         public int AddUser(UserInfo userInfo)
         {
-            return DatabaseHelper.AddUser(userInfo);
+            return userRepo.Insert(userInfo);
         }
 
         public UserInfo[] GetUsers()
         {
-            return DatabaseHelper.GetUsers();
+            return userRepo.Get();
         }
 
         public bool ValidatePassword(string password)

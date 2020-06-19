@@ -38,21 +38,22 @@ namespace MyUserManager.Activities
             DividerItemDecoration dividerItem = new DividerItemDecoration(_userInfoRecyclerView.Context, layoutManager.Orientation);
             _userInfoRecyclerView.AddItemDecoration(dividerItem);
 
-            InitDatabase();
+            //InitDatabase();
         }
 
-        private void InitDatabase()
-        {
-            var applicationFolderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-            var databaseFileName = System.IO.Path.Combine(applicationFolderPath, Resources.GetString(Resource.String.user_db_file));
+        //private void InitDatabase()
+        //{
+        //    var applicationFolderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+        //    var databaseFileName = System.IO.Path.Combine(applicationFolderPath, Resources.GetString(Resource.String.user_db_file));
 
-            DatabaseHelper.InitDb(databaseFileName);
-        }
+        //    DatabaseHelper.InitDb(databaseFileName);
+        //}
 
         protected override void OnResume()
         {
             base.OnResume();
-            UserService userService = new UserService();
+            var fileHelper = new FileHelper();
+            UserService userService = new UserService(fileHelper.GetLocalFilePath(Resources.GetString(Resource.String.user_db_file)));
             var recyclerViewData = userService.GetUsers();
             _userInfoAdapter = new UserInfoAdapter(recyclerViewData);
             _userInfoRecyclerView.SetAdapter(_userInfoAdapter);

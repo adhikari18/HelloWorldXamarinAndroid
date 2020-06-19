@@ -25,7 +25,10 @@ namespace MyUserManager.Activities
         {
             var username = FindViewById<EditText>(Resource.Id.edit_text_username);
             var password = FindViewById<EditText>(Resource.Id.edit_text_password);
-            var userService = new UserService();
+
+            var fileHelper = new FileHelper();
+            var userService = new UserService(fileHelper.GetLocalFilePath(Resources.GetString(Resource.String.user_db_file)));
+
             var isPasswordValid =  userService.ValidatePassword(password.Text);
 
             if (!isPasswordValid)
