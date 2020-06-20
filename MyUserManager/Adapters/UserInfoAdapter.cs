@@ -7,24 +7,24 @@ namespace MyUserManager.Adapters
 {
     internal class UserInfoAdapter : RecyclerView.Adapter
     {
-        private readonly UserInfo[] items;
+        private readonly UserInfo[] _items;
         private const int HeaderItem = 0;
         private const int ListItem = 1;
 
         public UserInfoAdapter(UserInfo[] data)
         {
-            items = data;
+            _items = data;
         }
 
         // Create new views (invoked by the layout manager)
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
             //Setup your layout here
-            var id = items.Length > 0 ? (viewType == HeaderItem ? Resource.Layout.user_info_header_item : Resource.Layout.user_info_list_item) : Resource.Layout.empty_list_text;
+            var id = _items.Length > 0 ? (viewType == HeaderItem ? Resource.Layout.user_info_header_item : Resource.Layout.user_info_list_item) : Resource.Layout.empty_list_text;
             var itemView = LayoutInflater.From(parent.Context).
                 Inflate(id, parent, false);
 
-            if(viewType == HeaderItem || items.Length <= 0)
+            if(viewType == HeaderItem || _items.Length <= 0)
             {
                 return new UserInfoHeaderAdapterViewHolder(itemView);
             }
@@ -37,8 +37,8 @@ namespace MyUserManager.Adapters
             if(viewHolder is UserInfoAdapterViewHolder)
             {
                 var holder = viewHolder as UserInfoAdapterViewHolder;
-                holder.UserNameTextView.Text = items[position - 1].UserName;
-                holder.PasswordTextView.Text = items[position - 1].Password;
+                holder.UserNameTextView.Text = _items[position - 1].UserName;
+                holder.PasswordTextView.Text = _items[position - 1].Password;
             }
         }
         public override int GetItemViewType(int position)
@@ -48,7 +48,7 @@ namespace MyUserManager.Adapters
             return ListItem;
         }
 
-        public override int ItemCount => items.Length + 1;
+        public override int ItemCount => _items.Length + 1;
 
     }
 

@@ -5,20 +5,20 @@ namespace SharedLibrary.Repository
 {
     public class Repository<T> : IRepository<T> where T : BaseModel, new()
     {
-        private readonly SQLiteConnection db;
+        private readonly SQLiteConnection _db;
         public Repository(string dbPath)
         {
-            db = new SQLiteConnection(dbPath);
-            db.CreateTable<T>();
+            _db = new SQLiteConnection(dbPath);
+            _db.CreateTable<T>();
         }
         public T[] Get()
         {
-            return db.Table<T>().ToArray();
+            return _db.Table<T>().ToArray();
         }
 
         public int Insert(T entity)
         {
-            return db.Insert(entity);
+            return _db.Insert(entity);
         }
     }
 }
