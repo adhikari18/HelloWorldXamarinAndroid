@@ -8,10 +8,14 @@
         android:id="@+id/text_view_user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"/>
+        android:layout_alignParentLeft="true"
+        android:singleLine="true"
+        android:layout_toLeftOf="@id/text_view_password"
+        />
     <TextView
         android:id="@+id/text_view_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"/>
+        android:layout_alignParentRight="true"
+        android:singleLine="true"/>
 </RelativeLayout>
