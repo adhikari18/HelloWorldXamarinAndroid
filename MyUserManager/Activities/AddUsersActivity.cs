@@ -18,7 +18,6 @@ namespace MyUserManager.Activities
 
             var addUserButton = FindViewById<Button>(Resource.Id.button_add_user);
             addUserButton.Click += AddUserOnClick;
-
         }
 
         private void AddUserOnClick(object sender, EventArgs eventArgs)
@@ -27,26 +26,28 @@ namespace MyUserManager.Activities
             var password = FindViewById<EditText>(Resource.Id.edit_text_password);
 
             var fileHelper = new FileHelper();
-            var userService = new UserService(fileHelper.GetLocalFilePath(Resources.GetString(Resource.String.user_db_file)));
+            var dbFilePath = fileHelper.GetLocalFilePath(Resources.GetString(Resource.String.user_db_file));
 
-            var isPasswordValid =  userService.ValidatePassword(password.Text);
+            var userDataValidationService = new UserDataValidationService();
+            var isPasswordValid =  userDataValidationService.ValidatePassword(password.Text);
 
             if (!isPasswordValid)
             {
                 password.RequestFocus();
-                password.SetError("Invalid Password", null);
+                password.SetError(Resources.GetString(Resource.String.invalid_password_text), null);
             }
             else
             {
-                var addSuccessful = userService.AddUser(new UserInfo(username.Text, password.Text));
+                var userDataAccessService = new UserDataAccessService(dbFilePath);
+                var addSuccessful = userDataAccessService.AddUser(new UserInfo(username.Text, password.Text));
                 if(addSuccessful > 0)
                 {
-                    ShowToast("Successfully added user information!");
+                    ShowToast(Resources.GetString(Resource.String.user_add_success));
                     Finish();
                 }
                 else
                 {
-                    ShowToast("Oops, something went wrong!");
+                    ShowToast(Resources.GetString(Resource.String.oops_error_text));
                 }
             }
         }

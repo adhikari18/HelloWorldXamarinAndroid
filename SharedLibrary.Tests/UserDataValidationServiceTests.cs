@@ -1,10 +1,9 @@
 using SharedLibrary.Services;
-using System;
 using Xunit;
 
 namespace SharedLibrary.Tests
 {
-    public class UserServiceTests
+    public class UserDataValidationServiceTests
     {
         [Theory]
         [InlineData("", false)]
@@ -35,8 +34,8 @@ namespace SharedLibrary.Tests
 
         public void TestValidatePassword(string password, bool expected)
         {
-            var userService = new UserService();
-            var result = userService.ValidatePassword(password);
+            var validationService = new UserDataValidationService();
+            var result = validationService.ValidatePassword(password);
             Assert.Equal(expected, result);
         }
     }

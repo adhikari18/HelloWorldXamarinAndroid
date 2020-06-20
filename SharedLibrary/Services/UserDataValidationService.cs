@@ -1,27 +1,9 @@
-﻿using SharedLibrary.Models;
-using SharedLibrary.Repository;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 namespace SharedLibrary.Services
 {
-    public class UserService : IUserService
+    public class UserDataValidationService : IUserDataValidationService
     {
-        private readonly IRepository<UserInfo> userRepo;
-
-        public UserService(string dbPath)
-        {
-            userRepo = new Repository<UserInfo>(dbPath);
-        }
-        public int AddUser(UserInfo userInfo)
-        {
-            return userRepo.Insert(userInfo);
-        }
-
-        public UserInfo[] GetUsers()
-        {
-            return userRepo.Get();
-        }
-
         public bool ValidatePassword(string password)
         {
             if (string.IsNullOrEmpty(password))

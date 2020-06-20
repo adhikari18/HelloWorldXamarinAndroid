@@ -3,10 +3,9 @@ using System.Threading.Tasks;
 
 namespace SharedLibrary.Services
 {
-    public interface IUserService
+    public interface IUserDataAccessService
     {
         UserInfo[] GetUsers();
         int AddUser(UserInfo userInfo);
-        bool ValidatePassword(string password);
     }
 }

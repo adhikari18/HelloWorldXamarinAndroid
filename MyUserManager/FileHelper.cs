@@ -1,7 +1,9 @@
 ﻿
+using SharedLibrary;
+
 namespace MyUserManager
 {
-    public class FileHelper
+    public class FileHelper: IFileHelper
     {
         public string GetLocalFilePath(string filename)
         {

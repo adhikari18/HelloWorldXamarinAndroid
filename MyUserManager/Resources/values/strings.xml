@@ -14,4 +14,7 @@
 		\n 3. Password must not contain any sequence of characters immediately followed by the same sequence.
 	</string>
     <string name="empty_text">Users list is empty. Add user using the button below.</string>
+    <string name="invalid_password_text">Invalid Password</string>
+    <string name="user_add_success">Successfully added user information!!</string>
+    <string name="oops_error_text">Oops, something went wrong!!</string>
 </resources>
